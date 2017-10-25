@@ -15,6 +15,7 @@
   "devDependencies": {
     "bootstrap": "3",
     "jquery": "1",
-    "AceAdmin": "git://github.com/NTASTE/AceAdmin.git"
+    "AceAdmin": "git://github.com/NTASTE/AceAdmin.git",
+    "layer": "3.0.1"
   }
 }
