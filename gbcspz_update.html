@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <title>Title</title>
+  <link rel="stylesheet" href="ace/assets/css/bootstrap.min.css">
+  <link rel="stylesheet" href="ace/assets/css/ace.min.css">
+  <link rel="stylesheet" href="yjgb-css/gd_main.min.css">
+  <script type="text/javascript" src="ace/assets/js/jquery.min.js"></script>
+  <script type="text/javascript" src="ace/assets/js/bootstrap.min.js"></script>
+  <script type="text/javascript" src="ace/assets/js/ace/ace.js"></script>
+  <script type="text/javascript" src="layer/layer.js"></script>
+</head>
+<style>
+  .gb_layerframe .title>div{width: 140px;}
+  .gb_layerframe textarea{width: 900px;}
+</style>
+<body>
+<div class="container-fluid gb_layerframe">
+  <div class="row">
+    <div class="col-xs-12">
+      <table>
+        <tr>
+          <td class="title">
+            <div>音频录制保存目录</div>
+          </td>
+          <td>
+            <input name="ids" value="G:\电影\国产\动作" type="text" class="ace" />
+            <span class="lbl"></span>
+          </td>
+          <td class="title">
+            <div>音频服务器IP</div>
+          </td>
+          <td>
+            <input name="ids" value="127.0.0.1" type="text" class="ace" />
+            <span class="lbl"></span>
+          </td>
+          <td class="title">
+            <div>音频服务器端口</div>
+          </td>
+          <td>
+            <input name="ids" value="8080" type="text" class="ace" />
+            <span class="lbl"></span>
+          </td>
+        </tr>
+        <tr>
+          <td class="title">
+            <div>编码器上线端口</div>
+          </td>
+          <td>
+            <input name="ids" value="8888" type="text" class="ace" />
+            <span class="lbl"></span>
+          </td>
+          <td class="title">
+            <div>控制中心IP地址</div>
+          </td>
+          <td>
+            <input name="ids" value="192.168.0.1" type="text" class="ace" />
+            <span class="lbl"></span>
+          </td>
+          <td class="title">
+            <div>控制中心端口</div>
+
+          </td>
+          <td>
+            <input name="ids" value="8181" type="text" class="ace" />
+            <span class="lbl"></span>
+          </td>
+        </tr>
+        <tr>
+          <td class="title">
+            <div>分发服务音频接收端口</div>
+          </td>
+          <td>
+            <input name="ids" value="9292" type="text" class="ace" />
+            <span class="lbl"></span>
+          </td>
+          <td class="title">
+            <div>分发服务指令接收端口</div>
+          </td>
+          <td>
+            <input name="ids" value="9393" type="text" class="ace" />
+            <span class="lbl"></span>
+          </td>
+          <td class="title">
+            <div>呼叫中心服务器（主IP）</div>
+          </td>
+          <td>
+            <input name="ids" value="172.26.39.39" type="text" class="ace" />
+            <span class="lbl"></span>
+          </td>
+        </tr>
+        <tr>
+          <td class="title">
+            <div>呼叫中心服务端口</div>
+          </td>
+          <td>
+            <input name="ids" value="1100" type="text" class="ace" />
+            <span class="lbl"></span>
+          </td>
+          <td class="title">
+            <div>音频资源释放端口</div>
+          </td>
+          <td>
+            <input name="ids" value="9494" type="text" class="ace" />
+            <span class="lbl"></span>
+          </td>
+          <td class="title">
+            <div>资源申请地址</div>
+          </td>
+          <td>
+            <input name="ids" value="192.168.0.2" type="text" class="ace" />
+            <span class="lbl"></span>
+          </td>
+        </tr>
+        <tr>
+          <td class="title">
+            <div>资源申请端口</div>
+          </td>
+          <td>
+            <input name="ids" value="9595" type="text" class="ace" />
+            <span class="lbl"></span>
+          </td>
+          <td class="title">
+            <div>SNMP服务</div>
+          </td>
+          <td>
+            <input name="ids" value="192.168.0.3" type="text" class="ace" />
+            <span class="lbl"></span>
+          </td>
+          <td class="title">
+            <div>升级监测文件夹</div>
+          </td>
+          <td>
+            <input name="ids" value="D:\视频\欧美\悬疑" type="text" class="ace" />
+            <span class="lbl"></span>
+          </td>
+        </tr>
+        <tr>
+          <td class="title">
+            <div>TS升级开关</div>
+          </td>
+          <td>
+            <input name="ids" value="false" type="text" class="ace" />
+            <span class="lbl"></span>
+          </td>
+          <td class="title">
+            <div>升级服务开关</div>
+          </td>
+          <td>
+            <input name="ids" value="false" type="text" class="ace" />
+            <span class="lbl"></span>
+          </td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td class="title">
+            <div>TS升级描述</div>
+          </td>
+          <td colspan="5">
+            <textarea name="ids" value="45asdasda5sdasd4as6d4as6d4a6sd" type="text" class="ace" ></textarea>
+            <span class="lbl"></span>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </div>
+</div>
+
+
+<script type="text/javascript">
+  $(function () {
+    var data = [{
+      "yplzbcml":"G:\电影\国产\动作",
+      "ypfwqip":"127.0.0.1",
+      "ypfwqdk":"8080",
+      "bmqsxdk":"8181",
+      "kzzxip":"127.0.0.2",
+      "kzzxdk":"8282",
+      "fffwypjsdk":"8383",
+      "fffwzljsdk":"8484",
+      "hjzxfwq":"127.0.0.3",
+      "hjzxfwdk":"8585",
+      "ypzysfdk":"8686",
+      "zysqdz":"127.0.0.4",
+      "zysqdk":"8787",
+      "SNMPfw":"127.0.0.5",
+      "TSsjms":"我是TS升级描述",
+      "TSsjkg":"false",
+      "sjfwkg":"false",
+      "sjjcwjj":"A:\视频\欧美\悬疑"
+    }];
+  })
+</script>
+</body>
+</html>

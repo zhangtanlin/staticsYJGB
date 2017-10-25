@@ -1,0 +1,14 @@
+{
+  "name": "AceAdmin",
+  "homepage": "https://github.com/NTASTE/AceAdmin",
+  "_release": "a8bf573fe5",
+  "_resolution": {
+    "type": "branch",
+    "branch": "master",
+    "commit": "a8bf573fe5e773bdcf2433dcf115c3efb89ecc83"
+  },
+  "_source": "git://github.com/NTASTE/AceAdmin.git",
+  "_target": "*",
+  "_originalSource": "git://github.com/NTASTE/AceAdmin.git",
+  "_direct": true
+}

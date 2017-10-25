@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <title>Title</title>
+  <link rel="stylesheet" href="ace/assets/css/bootstrap.min.css">
+  <link rel="stylesheet" href="ace/assets/css/ace.min.css">
+  <link rel="stylesheet" href="yjgb-css/gd_main.min.css">
+  <script type="text/javascript" src="ace/assets/js/jquery.min.js"></script>
+  <script type="text/javascript" src="ace/assets/js/bootstrap.min.js"></script>
+  <script type="text/javascript" src="ace/assets/js/ace/ace.js"></script>
+  <script type="text/javascript" src="layer/layer.js"></script>
+  <script type="text/javascript" src="yjgb-js/ace.min.js"></script>
+  <script type="text/javascript">
+    //获取选中目标个数
+    function checkNum(target){
+      var cknum = 0;
+      var cks = document.getElementsByName(target);
+      for(var i=0;i<cks.length;i++){
+        if(cks[i].checked==true){
+          cknum++;
+        }
+      }
+      return cknum;
+    }
+    //修改操作
+    function updateRow(target) {
+      if(checkNum(target) < 1) {
+        top.layer.alert("必须选择一行!");
+        return;
+      } else if (checkNum(target) > 1) {
+        top.layer.alert("只能选择一行,不允许多选!");
+        return;
+      }
+      var index=top.layer.open({
+        type: 2,
+        shadeClose: true,
+        maxmin: true,
+        shade: 0.8,
+        area: ['80%', '80%'],
+        btn:['保存','返回','提交'],
+        content:'gbcspz_update.html'
+      });
+    }
+  </script>
+</head>
+<body>
+<div class="container-fluid gb_templet">
+  <div class="row">
+    <div class="col-xs-12">
+      <button class="btn btn_darkblue" onclick="updateRow('ids')">
+        <i class="fa fa-edit"></i>
+        修改
+      </button>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-xs-12">
+      <table class="table table-striped table-bordered table-hover">
+        <thead class="orange">
+        <tr>
+          <th>
+          </th>
+          <th>参数名称</th>
+          <th>参数值</th>
+        </tr>
+        </thead>
+        <tbody class="left">
+        <tr>
+          <td class="center">
+            <label class="position-relative">
+              <input id="ids" name="ids" value="1" type="checkbox" class="ace" />
+              <span class="lbl"></span>
+            </label>
+          </td>
+          <td>音频录制保存目录</td>
+          <td>G:\电影\国产\动作</td>
+        </tr>
+        <tr>
+          <td class="center">
+            <label class="position-relative">
+              <input id="ids" name="ids" value="2" type="checkbox" class="ace" />
+              <span class="lbl"></span>
+            </label>
+          </td>
+          <td>音频服务器IP</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td class="ce127.0.0.1nter">
+            <label class="position-relative">
+              <input id="ids" name="ids" value="3" type="checkbox" class="ace" />
+              <span class="lbl"></span>
+            </label>
+          </td>
+          <td>音频服务器端口</td>
+          <td>8080</td>
+        </tr>
+        <tr>
+          <td class="center">
+            <label class="position-relative">
+              <input id="ids" name="ids" value="4" type="checkbox" class="ace" />
+              <span class="lbl"></span>
+            </label>
+          </td>
+          <td>编码器上线端口</td>
+          <td>8888</td>
+        </tr>
+        <tr>
+          <td class="center">
+            <label class="position-relative">
+              <input id="ids" name="ids" value="5" type="checkbox" class="ace" />
+              <span class="lbl"></span>
+            </label>
+          </td>
+          <td>控制中心IP地址</td>
+          <td>192.168.0.1</td>
+        </tr>
+        <tr>
+          <td class="center">
+            <label class="position-relative">
+              <input id="ids" name="ids" value="1" type="checkbox" class="ace" />
+              <span class="lbl"></span>
+            </label>
+          </td>
+          <td>控制中心端口</td>
+          <td>8181</td>
+        </tr>
+        <tr>
+          <td class="center">
+            <label class="position-relative">
+              <input id="ids" name="ids" value="1" type="checkbox" class="ace" />
+              <span class="lbl"></span>
+            </label>
+          </td>
+          <td>分发服务音频接收端口</td>
+          <td>9292</td>
+        </tr>
+        <tr>
+          <td class="center">
+            <label class="position-relative">
+              <input id="ids" name="ids" value="1" type="checkbox" class="ace" />
+              <span class="lbl"></span>
+            </label>
+          </td>
+          <td>分发服务指令接收端口</td>
+          <td>9393</th>
+        </tr>
+        <tr>
+          <td class="center">
+            <label class="position-relative">
+              <input id="ids" name="ids" value="1" type="checkbox" class="ace" />
+              <span class="lbl"></span>
+            </label>
+          </td>
+          <td>呼叫中心服务器（主IP）</td>
+          <td>172.26.39.39</th>
+        </tr>
+        <tr>
+          <td class="center">
+            <label class="position-relative">
+              <input id="ids" name="ids" value="1" type="checkbox" class="ace" />
+              <span class="lbl"></span>
+            </label>
+          </td>
+          <td>呼叫中心服务端口</td>
+          <td>1100</th>
+        </tr>
+        <tr>
+          <td class="center">
+            <label class="position-relative">
+              <input id="ids" name="ids" value="1" type="checkbox" class="ace" />
+              <span class="lbl"></span>
+            </label>
+          </td>
+          <td>音频资源释放端口</td>
+          <td>9494</th>
+        </tr>
+        <tr>
+          <td class="center">
+            <label class="position-relative">
+              <input id="ids" name="ids" value="1" type="checkbox" class="ace" />
+              <span class="lbl"></span>
+            </label>
+          </td>
+          <td>资源申请地址</td>
+          <td>192.168.0.2</th>
+        </tr>
+        <tr>
+          <td>
+            <label class="position-relative">
+              <input id="ids" name="ids" value="1" type="checkbox" class="ace" />
+              <span class="lbl"></span>
+            </label>
+          </td>
+          <td>资源申请端口</td>
+          <td>9595</th>
+        </tr>
+        <tr>
+          <td class="center">
+            <label class="position-relative">
+              <input id="ids" name="ids" value="1" type="checkbox" class="ace" />
+              <span class="lbl"></span>
+            </label>
+          </td>
+          <td>SNMP服务</td>
+          <td>192.168.0.3</th>
+        </tr>
+        <tr>
+          <td class="center">
+            <label class="position-relative">
+              <input id="ids" name="ids" value="1" type="checkbox" class="ace" />
+              <span class="lbl"></span>
+            </label>
+          </td>
+          <td>TS升级描述</td>
+          <td>45asdasda5sdasd4as6d4as6d4a6sd</th>
+        </tr>
+        <tr>
+          <td class="center">
+            <label class="position-relative">
+              <input id="ids" name="ids" value="1" type="checkbox" class="ace" />
+              <span class="lbl"></span>
+            </label>
+          </td>
+          <td>TS升级开关</td>
+          <td>false</th>
+        </tr>
+        <tr>
+          <td class="center">
+            <label class="position-relative">
+              <input id="ids" name="ids" value="1" type="checkbox" class="ace" />
+              <span class="lbl"></span>
+            </label>
+          </td>
+          <td>升级服务开关</td>
+          <td>false</th>
+        </tr>
+        <tr>
+          <td class="center">
+            <label class="position-relative">
+              <input id="ids" name="ids" value="1" type="checkbox" class="ace" />
+              <span class="lbl"></span>
+            </label>
+          </td>
+          <td>升级监测文件夹</td>
+          <td>G:\AV\国产\制服</th>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+</body>
+</html>
