@@ -4,46 +4,22 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
   <title>Title</title>
-  <link rel="stylesheet" href="ace/assets/css/bootstrap.min.css">
-  <link rel="stylesheet" href="ace/assets/css/ace.min.css">
-  <link rel="stylesheet" href="yjgb-css/gd_main.min.css">
-  <script type="text/javascript" src="ace/assets/js/jquery.min.js"></script>
-  <script type="text/javascript" src="ace/assets/js/bootstrap.min.js"></script>
-  <script type="text/javascript" src="ace/assets/js/ace/ace.js"></script>
-  <script type="text/javascript" src="layer/layer.js"></script>
-  <script type="text/javascript" src="yjgb-js/ace.min.js"></script>
-  <script type="text/javascript">
-    //获取选中目标个数
-    function checkNum(target){
-      var cknum = 0;
-      var cks = document.getElementsByName(target);
-      for(var i=0;i<cks.length;i++){
-        if(cks[i].checked==true){
-          cknum++;
-        }
-      }
-      return cknum;
-    }
-    //修改操作
-    function updateRow(target) {
-      if(checkNum(target) < 1) {
-        top.layer.alert("必须选择一行!");
-        return;
-      } else if (checkNum(target) > 1) {
-        top.layer.alert("只能选择一行,不允许多选!");
-        return;
-      }
-      var index=top.layer.open({
-        type: 2,
-        shadeClose: true,
-        maxmin: true,
-        shade: 0.8,
-        area: ['80%', '80%'],
-        btn:['保存','返回','提交'],
-        content:'gbcspz_update.html'
-      });
-    }
-  </script>
+  <link rel="stylesheet" href="bower_components/AceAdmin/assets/css/font-awesome.min.css">
+  <!--[if IE 7]>
+  <link rel="stylesheet" href="bower_components/AceAdmin/assets/css/font-awesome-ie7.min.css" />
+  <![endif]-->
+  <link rel="stylesheet" href="bower_components/AceAdmin/assets/css/bootstrap.min.css">
+  <link rel="stylesheet" href="bower_components/AceAdmin/assets/css/ace.min.css">
+  <!--[if lte IE 8]>
+  <link rel="stylesheet" href="bower_components/AceAdmin/assets/css/ace-ie.min.css" />
+  <![endif]-->
+  <link rel="stylesheet" href="bower_components/zTree/css/zTreeStyle/zTreeStyle.css">
+  <!--[if lt IE 9]>
+  <script src="bower_components/AceAdmin/assets/js/html5shiv.js"></script>
+  <script src="bower_components/AceAdmin/assets/js/respond.min.js"></script>
+  <![endif]-->
+  <link rel="stylesheet" href="bower_components/layer/build/skin/default/layer.css">
+  <link rel="stylesheet" href="yjgb-css/gd_main2.min.css">
 </head>
 <body>
 <div class="container-fluid gb_templet">
@@ -70,7 +46,7 @@
         <tr>
           <td class="center">
             <label class="position-relative">
-              <input id="ids" name="ids" value="1" type="checkbox" class="ace" />
+              <input id="ids" name="ids" value="1" type="radio" class="ace" />
               <span class="lbl"></span>
             </label>
           </td>
@@ -80,7 +56,7 @@
         <tr>
           <td class="center">
             <label class="position-relative">
-              <input id="ids" name="ids" value="2" type="checkbox" class="ace" />
+              <input id="ids" name="ids" value="2" type="radio" class="ace" />
               <span class="lbl"></span>
             </label>
           </td>
@@ -88,9 +64,9 @@
           <td></td>
         </tr>
         <tr>
-          <td class="ce127.0.0.1nter">
+          <td class="center">
             <label class="position-relative">
-              <input id="ids" name="ids" value="3" type="checkbox" class="ace" />
+              <input id="ids" name="ids" value="3" type="radio" class="ace" />
               <span class="lbl"></span>
             </label>
           </td>
@@ -100,7 +76,7 @@
         <tr>
           <td class="center">
             <label class="position-relative">
-              <input id="ids" name="ids" value="4" type="checkbox" class="ace" />
+              <input id="ids" name="ids" value="4" type="radio" class="ace" />
               <span class="lbl"></span>
             </label>
           </td>
@@ -110,7 +86,7 @@
         <tr>
           <td class="center">
             <label class="position-relative">
-              <input id="ids" name="ids" value="5" type="checkbox" class="ace" />
+              <input id="ids" name="ids" value="5" type="radio" class="ace" />
               <span class="lbl"></span>
             </label>
           </td>
@@ -120,7 +96,7 @@
         <tr>
           <td class="center">
             <label class="position-relative">
-              <input id="ids" name="ids" value="1" type="checkbox" class="ace" />
+              <input id="ids" name="ids" value="1" type="radio" class="ace" />
               <span class="lbl"></span>
             </label>
           </td>
@@ -130,7 +106,7 @@
         <tr>
           <td class="center">
             <label class="position-relative">
-              <input id="ids" name="ids" value="1" type="checkbox" class="ace" />
+              <input id="ids" name="ids" value="1" type="radio" class="ace" />
               <span class="lbl"></span>
             </label>
           </td>
@@ -140,7 +116,7 @@
         <tr>
           <td class="center">
             <label class="position-relative">
-              <input id="ids" name="ids" value="1" type="checkbox" class="ace" />
+              <input id="ids" name="ids" value="1" type="radio" class="ace" />
               <span class="lbl"></span>
             </label>
           </td>
@@ -150,7 +126,7 @@
         <tr>
           <td class="center">
             <label class="position-relative">
-              <input id="ids" name="ids" value="1" type="checkbox" class="ace" />
+              <input id="ids" name="ids" value="1" type="radio" class="ace" />
               <span class="lbl"></span>
             </label>
           </td>
@@ -160,7 +136,7 @@
         <tr>
           <td class="center">
             <label class="position-relative">
-              <input id="ids" name="ids" value="1" type="checkbox" class="ace" />
+              <input id="ids" name="ids" value="1" type="radio" class="ace" />
               <span class="lbl"></span>
             </label>
           </td>
@@ -170,7 +146,7 @@
         <tr>
           <td class="center">
             <label class="position-relative">
-              <input id="ids" name="ids" value="1" type="checkbox" class="ace" />
+              <input id="ids" name="ids" value="1" type="radio" class="ace" />
               <span class="lbl"></span>
             </label>
           </td>
@@ -180,7 +156,7 @@
         <tr>
           <td class="center">
             <label class="position-relative">
-              <input id="ids" name="ids" value="1" type="checkbox" class="ace" />
+              <input id="ids" name="ids" value="1" type="radio" class="ace" />
               <span class="lbl"></span>
             </label>
           </td>
@@ -188,9 +164,9 @@
           <td>192.168.0.2</th>
         </tr>
         <tr>
-          <td>
+          <td class="center">
             <label class="position-relative">
-              <input id="ids" name="ids" value="1" type="checkbox" class="ace" />
+              <input id="ids" name="ids" value="1" type="radio" class="ace" />
               <span class="lbl"></span>
             </label>
           </td>
@@ -200,7 +176,7 @@
         <tr>
           <td class="center">
             <label class="position-relative">
-              <input id="ids" name="ids" value="1" type="checkbox" class="ace" />
+              <input id="ids" name="ids" value="1" type="radio" class="ace" />
               <span class="lbl"></span>
             </label>
           </td>
@@ -210,7 +186,7 @@
         <tr>
           <td class="center">
             <label class="position-relative">
-              <input id="ids" name="ids" value="1" type="checkbox" class="ace" />
+              <input id="ids" name="ids" value="1" type="radio" class="ace" />
               <span class="lbl"></span>
             </label>
           </td>
@@ -220,7 +196,7 @@
         <tr>
           <td class="center">
             <label class="position-relative">
-              <input id="ids" name="ids" value="1" type="checkbox" class="ace" />
+              <input id="ids" name="ids" value="1" type="radio" class="ace" />
               <span class="lbl"></span>
             </label>
           </td>
@@ -230,7 +206,7 @@
         <tr>
           <td class="center">
             <label class="position-relative">
-              <input id="ids" name="ids" value="1" type="checkbox" class="ace" />
+              <input id="ids" name="ids" value="1" type="radio" class="ace" />
               <span class="lbl"></span>
             </label>
           </td>
@@ -240,7 +216,7 @@
         <tr>
           <td class="center">
             <label class="position-relative">
-              <input id="ids" name="ids" value="1" type="checkbox" class="ace" />
+              <input id="ids" name="ids" value="1" type="radio" class="ace" />
               <span class="lbl"></span>
             </label>
           </td>
@@ -252,5 +228,44 @@
     </div>
   </div>
 </div>
+
+<script src='bower_components/AceAdmin/assets/js/jquery-1.10.2.min.js'></script>
+<script type="text/javascript" src="bower_components/AceAdmin/assets/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="bower_components/AceAdmin/assets/js/ace.min.js"></script>
+<script type="text/javascript" src="bower_components/AceAdmin/assets/js/ace-extra.min.js"></script>
+<script type="text/javascript" src="bower_components/layer/build/layer.js"></script>
+<script type="text/javascript" src="bower_components/zTree/js/jquery.ztree.core.min.js"></script>
+<script type="text/javascript">
+  //获取选中目标个数
+  function checkNum(target){
+    var cknum = 0;
+    var cks = document.getElementsByName(target);
+    for(var i=0;i<cks.length;i++){
+      if(cks[i].checked==true){
+        cknum++;
+      }
+    }
+    return cknum;
+  }
+  //修改操作
+  function updateRow(target) {
+    if(checkNum(target) < 1) {
+      top.layer.alert("必须选择一行!");
+      return;
+    } else if (checkNum(target) > 1) {
+      top.layer.alert("只能选择一行,不允许多选!");
+      return;
+    }
+    var index=top.layer.open({
+      type: 2,
+      shadeClose: true,
+      maxmin: true,
+      shade: 0.8,
+      area: ['80%', '80%'],
+      btn:['保存','返回','提交'],
+      content:'gbcspz_input.html'
+    });
+  }
+</script>
 </body>
 </html>

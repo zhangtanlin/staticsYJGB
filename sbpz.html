@@ -4,18 +4,28 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Title</title>
-  <link href="AceAdmin/assets/css/bootstrap.min.css" rel="stylesheet" />
-  <link rel="stylesheet" href="AceAdmin/assets/css/ace.min.css" />
-  <link rel="stylesheet" href="AceAdmin/assets/css/font-awesome.min.css" />
-  <link rel="stylesheet" href="zTree_v3-master/css/zTreeStyle/zTreeStyle.css">
+  <link rel="stylesheet" href="bower_components/AceAdmin/assets/css/font-awesome.min.css">
+  <!--[if IE 7]>
+  <link rel="stylesheet" href="bower_components/AceAdmin/assets/css/font-awesome-ie7.min.css" />
+  <![endif]-->
+  <link rel="stylesheet" href="bower_components/AceAdmin/assets/css/bootstrap.min.css">
+  <link rel="stylesheet" href="bower_components/AceAdmin/assets/css/ace.min.css">
   <!--[if lte IE 8]>
-  <link rel="stylesheet" href="AceAdmin/assets/css/ace-ie.min.css" />
+  <link rel="stylesheet" href="bower_components/AceAdmin/assets/css/ace-ie.min.css" />
   <![endif]-->
+  <link rel="stylesheet" href="bower_components/zTree/css/zTreeStyle/zTreeStyle.css">
   <!--[if lt IE 9]>
-  <script src="AceAdmin/assets/js/html5shiv.js"></script>
-  <script src="AceAdmin/assets/js/respond.min.js"></script>
+  <script src="bower_components/AceAdmin/assets/js/html5shiv.js"></script>
+  <script src="bower_components/AceAdmin/assets/js/respond.min.js"></script>
   <![endif]-->
+  <link rel="stylesheet" href="yjgb-css/gd_main2.min.css">
   <style type="text/css">
+    .nav-list>li>a{
+      height: auto;
+    }
+    #sbpzTreeBox>a{
+      overflow: auto;
+    }
     ul.ztree {
       margin-top: 10px;
       border: 1px solid #617775;
@@ -29,24 +39,39 @@
 </head>
 <body>
 <div class="main-container" id="main-container">
+  <script type="text/javascript">
+    try{ace.settings.check('main-container' , 'fixed')}catch(e){}
+  </script>
+
   <div class="main-container-inner">
+
+    <!--小屏图标-->
     <a class="menu-toggler" id="menu-toggler" href="#">
       <span class="menu-text"></span>
     </a>
 
-    <!--左侧导航-->
-    <div class="sidebar responsive" id="sidebar">
+    <!--内容左侧导航-->
+    <div class="sidebar" id="sidebar">
+      <script type="text/javascript">
+        try{ace.settings.check('sidebar' , 'fixed')}catch(e){}
+      </script>
+
+      <!--树-->
       <ul class="nav nav-list">
         <li>
-          <a href="#">
-            <i class="icon-dashboard"></i>
+          <a href="javascript:;">
+            <i class="icon-paper-clip"></i>
             <span class="menu-text">行政区划</span>
           </a>
         </li>
+        <li>
+          <a href="#" id="sbpzTreeBox">
+            <div class="menu-text ztree" id="sbpzTree"></div>
+          </a>
+        </li>
       </ul>
-        <!--树-->
-        <div id="sbpz_tree" class="ztree">树</div>
 
+      <!--收缩图标及其方法-->
       <div class="sidebar-collapse" id="sidebar-collapse">
         <i class="icon-double-angle-left" data-icon1="icon-double-angle-left" data-icon2="icon-double-angle-right"></i>
       </div>
@@ -54,28 +79,35 @@
         try{ace.settings.check('sidebar' , 'collapsed')}catch(e){}
       </script>
     </div>
-
-    <!--中部内容区-->
-    <div class="main-content" id="sbpz_frame">
-      内容区
+    <!--内容右侧面板-->
+    <div class="main-content" id="sbpzFrame">
+      987654321987654321987654321987654321987654321987654321
     </div>
+
   </div>
-  <a href="#" id="btn-scroll-up" class="btn-scroll-up btn btn-sm btn-inverse">
-    <i class="icon-double-angle-up icon-only bigger-110"></i>
-  </a>
+
 </div>
 
-<script src="AceAdmin/assets/js/jquery-1.10.2.min.js"></script>
-<script src="AceAdmin/assets/js/bootstrap.min.js"></script>
-<script src="AceAdmin/assets/js/ace.min.js"></script>
-<script src="AceAdmin/assets/js/ace-extra.min.js"></script>
-<script src="zTree_v3-master/js/jquery.ztree.core.min.js"></script>
+
+
+
+
+<script src='bower_components/AceAdmin/assets/js/jquery-1.10.2.min.js'></script>
+<script type="text/javascript" src="bower_components/AceAdmin/assets/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="bower_components/AceAdmin/assets/js/ace.min.js"></script>
+<script type="text/javascript" src="bower_components/AceAdmin/assets/js/ace-extra.min.js"></script>
+<script type="text/javascript" src="bower_components/layer/build/layer.js"></script>
+<script type="text/javascript" src="bower_components/zTree/js/jquery.ztree.core.min.js"></script>
 <script type="text/javascript">
   jQuery(function($){
     var setting = {
+      view: {
+        showLine: false//不显示连接线
+      },
       data: {
         key: {
-          title:"t"
+          title:"t",
+          url: "xUrl"
         },
         simpleData: {
           enable: true
@@ -86,28 +118,56 @@
       }
     };
     var zNodes =[
-      { id:1, pId:0, name:"普通的父节点", t:"我很普通，随便点我吧", open:true},
-      { id:11, pId:1, name:"叶子节点 - 1", t:"我很普通，随便点我吧"},
-      { id:12, pId:1, name:"叶子节点 - 2", t:"我很普通，随便点我吧"},
-      { id:13, pId:1, name:"叶子节点 - 3", t:"我很普通，随便点我吧"},
-      { id:2, pId:0, name:"NB的父节点", t:"点我可以，但是不能点我的子节点，有本事点一个你试试看？", open:true},
-      { id:21, pId:2, name:"叶子节点2 - 1", t:"你哪个单位的？敢随便点我？小心点儿..", click:false},
-      { id:22, pId:2, name:"叶子节点2 - 2", t:"我有老爸罩着呢，点击我的小心点儿..", click:false},
-      { id:23, pId:2, name:"叶子节点2 - 3", t:"好歹我也是个领导，别普通群众就来点击我..", click:false},
-      { id:3, pId:0, name:"郁闷的父节点", t:"别点我，我好害怕...我的子节点随便点吧...", open:true, click:false },
-      { id:31, pId:3, name:"叶子节点3 - 1", t:"唉，随便点我吧"},
-      { id:32, pId:3, name:"叶子节点3 - 2", t:"唉，随便点我吧"},
-      { id:33, pId:3, name:"叶子节点3 - 3", t:"唉，随便点我吧"}
+      //id表示当前层的标识，pId表示父级的id
+      { id:1, pId:0, name:"四川省", t:"四川省",open:true,url:"sbpzList.html"},
+      { id:11, pId:1, name:"成都市", t:"成都市", open: false},
+      { id:111, pId:11, name:"锦江区", t:"锦江区", open: false},
+      { id:112, pId:11, name:"金牛区", t:"金牛区", open: false},
+      { id:113, pId:11, name:"高新区", t:"高新区", open: false},
+      { id:114, pId:11, name:"龙泉驿区", t:"龙泉驿区", open: false},
+      { id:1141, pId:114, name:"龙泉街道", t:"龙泉街道", open: false},
+      { id:1142, pId:114, name:"大面街道", t:"大面街道", open: false},
+      { id:1143, pId:114, name:"十陵街道", t:"十陵街道", open: false},
+      { id:1144, pId:114, name:"同安街道", t:"同安街道", open: false},
+      { id:1145, pId:114, name:"洛带镇", t:"洛带镇", open: false},
+      { id:1146, pId:114, name:"万兴乡", t:"万兴乡", open: false},
+      { id:1147, pId:114, name:"洪安镇", t:"洪安镇", open: false},
+      { id:1148, pId:114, name:"柏合镇", t:"柏合镇", open: false},
+      { id:1149, pId:114, name:"西河镇", t:"西河镇", open: false},
+      { id:11491, pId:1149, name:"上游社区dfgdgdgsfgsdfgsdfgdsfg", t:"上游社区", open: false},
+      { id:11492, pId:1149, name:"跃进社区", t:"跃进社区", open: false},
+      { id:11493, pId:1149, name:"鹿角社区", t:"鹿角社区", open: false},
+      { id:11494, pId:1149, name:"黄连村", t:"黄连村", open: false},
+      { id:11495, pId:1149, name:"阙家村", t:"阙家村", open: false},
+      { id:11496, pId:1149, name:"东风村", t:"东风村", open: false},
+      { id:11497, pId:1149, name:"龙井村", t:"龙井村", open: false},
+      { id:11498, pId:1149, name:"两河村", t:"两河村", open: false},
+      { id:12, pId:1, name:"绵阳市", t:"绵阳市", open: false},
+      { id:121, pId:12, name:"涪城区", t:"涪城区", open:true},
+      { id:1211, pId:121, name:"丰谷镇", t:"丰谷镇", open:false},
+      { id:12121, pId:1211, name:"新隆沟村", t:"新隆沟村", open:false},
+      { id:12122, pId:1211, name:"新建村", t:"新建村"},
+      { id:2, pId:0, name:"浙江省", t:"浙江省"},
+      { id:21, pId:2, name:"舟山市", t:"舟山市"},
+      { id:211, pId:21, name:"普陀区", t:"普陀区"},
+      { id:2111, pId:211, name:"普陀山镇", t:"普陀山镇"},
+      { id:21111, pId:2111, name:"龙湾村", t:"浙江省"},
     ];
     var i = 0;
     function onClick(event, treeId, treeNode, clickFlag) {
-      var event = event, treeId = treeId, treeNode = treeNode, clickFlag = clickFlag;
-      $("#sbpz_frame").html(event+"<br>"+treeId+"<br>"+treeNode+"<br>"+clickFlag+"<br>"+i);
+      var event = event,
+        treeId = treeId,
+        treeNode = treeNode,
+        clickFlag = clickFlag;
+//      $("#sbpzFrame").html(i);
+
+      $("#sbpzFrame").load(treeNode.url);
+
       console.log(event, treeId, treeNode, clickFlag);
       i++;
     }
     $(document).ready(function(){
-      $.fn.zTree.init($("#sbpz_tree"), setting, zNodes);
+      $.fn.zTree.init($("#sbpzTree"), setting, zNodes);
     });
   });
 </script>

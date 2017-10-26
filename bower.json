@@ -13,9 +13,10 @@
     "tests"
   ],
   "devDependencies": {
-    "bootstrap": "3",
     "jquery": "1",
     "AceAdmin": "git://github.com/NTASTE/AceAdmin.git",
-    "layer": "3.0.1"
-  }
+    "layer": "3.0.1",
+    "zTree": "^3.5.29"
+  },
+  "dependencies": {}
 }

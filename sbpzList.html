@@ -1,0 +1,87 @@
+<form action="" method="post" target="_self" id="queryForm" name="queryForm">
+  <div class="container-fluid gb_templet">
+    <div class="rows">
+      <div class="col-xs-12">
+        <button class="btn btn_green" onclick="insertRow(document.queryForm,'<%=request.getContextPath() %>/fblb/input.do?flowId=')">
+          <i class="fa fa-plus"></i>
+          新增
+        </button>
+        <button class="btn btn_purple" onclick="updateRow(document.queryForm,'<%=request.getContextPath() %>/fblb/update.do','ids')">
+          <i class="fa fa-edit"></i>
+          修改
+        </button>
+        <button class="btn btn_darkblue" onclick="deleteRow(document.queryForm,'<%=request.getContextPath() %>/fblb/delete.do','ids','_self')">
+          <i class="fa fa-trash-o"></i>
+          删除
+        </button>
+        <button class="btn btn_darkblue" onclick="loadExport(document.queryForm,'<%=request.getContextPath()%>/fblb/exportExcel.do')">
+          <i class="fa fa-reply"></i>
+          导出
+        </button>
+      </div>
+    </div>
+
+    <div class="rows">
+      <div class="col-xs-12">
+        <table class="table table-striped table-bordered table-hover">
+          <thead class="orange">
+          <tr>
+            <th class="center">
+              <label>
+                <input type="checkbox" class="ace" />
+                <span class="lbl"></span>
+              </label>
+            </th>
+            <th nowrap="nowrap">设备名称</th>
+            <th nowrap="nowrap">设备类型</th>
+            <th nowrap="nowrap">默认音量</th>
+            <th nowrap="nowrap">物理地址</th>
+            <th nowrap="nowrap">逻辑地址</th>
+            <th nowrap="nowrap">经度</th>
+            <th nowrap="nowrap">纬度</th>
+            <th nowrap="nowrap">QAM</th>
+            <th nowrap="nowrap">启用网络</th>
+            <th nowrap="nowrap">网络参数</th>
+            <th nowrap="nowrap">配置LED</th>
+            <th nowrap="nowrap">LED参数</th>
+            <th nowrap="nowrap">应急设备</th>
+            <th nowrap="nowrap">安装地址</th>
+            <th nowrap="nowrap">查看详情</th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr>
+            <td class="center">
+              <label class="position-relative">
+                <input id="ids" name="ids" value="1" type="checkbox" class="ace" />
+                <span class="lbl"></span>
+              </label>
+            </td>
+            <td>某某设备</td>
+            <td>IP</td>
+            <td>50</td>
+            <td>465745675467</td>
+            <td>665745675467</td>
+            <td>104.2616271973</td>
+            <td>30.4954261715</td>
+            <td>C-163(64)</td>
+            <td>否</td>
+            <td>IP:192.168.0.0</td>
+            <td></td>
+            <td>LED参数</td>
+            <td>否</td>
+            <td>四川省成都市龙泉区</td>
+            <td><a href="">详情</a></td>
+          </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</form>
+
+<script type="text/javascript">
+  $(function(){
+
+  })
+</script>
