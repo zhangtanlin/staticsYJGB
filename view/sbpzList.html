@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>设备配置</title>
+  <link rel="stylesheet" href="../bower_components/AceAdmin/assets/css/font-awesome.min.css">
+  <!--[if IE 7]>
+  <link rel="stylesheet" href="../bower_components/AceAdmin/assets/css/font-awesome-ie7.min.css"/>
+  <![endif]-->
+  <link rel="stylesheet" href="../bower_components/AceAdmin/assets/css/bootstrap.min.css">
+  <link rel="stylesheet" href="../bower_components/AceAdmin/assets/css/ace.min.css">
+  <!--[if lte IE 8]>
+  <link rel="stylesheet" href="../bower_components/AceAdmin/assets/css/ace-ie.min.css"/>
+  <![endif]-->
+  <link rel="stylesheet" href="../bower_components/zTree/css/zTreeStyle/zTreeStyle.css">
+  <!--[if lt IE 9]>
+  <script src="../bower_components/AceAdmin/assets/js/html5shiv.js"></script>
+  <script src="../bower_components/AceAdmin/assets/js/respond.min.js"></script>
+  <![endif]-->
+  <link rel="stylesheet" href="../bower_components/layer/build/skin/default/layer.css">
+  <link rel="stylesheet" href="../yjgb-css/gd_main2.min.css">
+</head>
+<body>
+
+
+<div class="container-fluid gb_templet">
+  <div class="rows">
+    <div class="col-xs-12">
+      <button class="btn btn_green" onclick="insertRow()">
+        <i class="fa fa-plus"></i>
+        新增
+      </button>
+      <button class="btn btn_purple" onclick="updateRow('sbpzListInput.html','ids')">
+        <i class="fa fa-edit"></i>
+        修改
+      </button>
+      <button class="btn btn_darkblue" onclick="deleteRow('sbpzListInput.html','ids')">
+        <i class="fa fa-trash-o"></i>
+        删除
+      </button>
+      <button class="btn btn_darkblue" onclick="loadExport(document.queryForm,'<%=request.getContextPath()%>/fblb/exportExcel.do')">
+        <i class="fa fa-reply"></i>
+        导出
+      </button>
+    </div>
+  </div>
+
+  <div class="rows">
+    <div class="col-xs-12">
+      <table class="table table-striped table-bordered table-hover">
+        <thead class="orange">
+        <tr>
+          <th class="center">
+            <label class="position-relative">
+              <input id="ids" name="ids" value="1" type="checkbox" class="ace" />
+              <span class="lbl"></span>
+            </label>
+          </th>
+          <th nowrap="nowrap">设备名称</th>
+          <th nowrap="nowrap">设备类型</th>
+          <th nowrap="nowrap">默认音量</th>
+          <th nowrap="nowrap">物理地址</th>
+          <th nowrap="nowrap">逻辑地址</th>
+          <th nowrap="nowrap">经度</th>
+          <th nowrap="nowrap">纬度</th>
+          <th nowrap="nowrap">QAM</th>
+          <th nowrap="nowrap">启用网络</th>
+          <th nowrap="nowrap">网络参数</th>
+          <th nowrap="nowrap">配置LED</th>
+          <th nowrap="nowrap">LED参数</th>
+          <th nowrap="nowrap">应急设备</th>
+          <th nowrap="nowrap">安装地址</th>
+          <th nowrap="nowrap">查看详情</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+          <td class="center">
+            <label class="position-relative">
+              <input id="ids" name="ids" value="1" type="checkbox" class="ace" />
+              <span class="lbl"></span>
+            </label>
+          </td>
+          <td>某某设备</td>
+          <td>IP</td>
+          <td>50</td>
+          <td>465745675467</td>
+          <td>665745675467</td>
+          <td>104.2616271973</td>
+          <td>30.4954261715</td>
+          <td>C-163(64)</td>
+          <td>否</td>
+          <td>IP:192.168.0.0</td>
+          <td></td>
+          <td>LED参数</td>
+          <td>否</td>
+          <td>四川省成都市龙泉区</td>
+          <td><a href="">详情</a></td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+
+<script src='../bower_components/AceAdmin/assets/js/jquery-1.10.2.min.js'></script>
+<script type="text/javascript" src="../bower_components/AceAdmin/assets/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="../bower_components/AceAdmin/assets/js/ace.min.js"></script>
+<script type="text/javascript" src="../bower_components/AceAdmin/assets/js/ace-extra.min.js"></script>
+<script type="text/javascript" src="../bower_components/layer/build/layer.js"></script>
+<script type="text/javascript">
+
+  //获取选中目标个数
+  function checkNum(target){
+    var cknum = 0;
+    var cks = document.getElementsByName(target);
+    for(var i=0;i<cks.length;i++){
+      if(cks[i].checked==true){
+        cknum++;
+      }
+    }
+    return cknum;
+  }
+
+  //新增
+  function insertRow(action) {
+    var index=top.layer.open({
+      skin: 'gb_layer',
+      type: 2,
+      title:'新增',
+      shadeClose: true,
+      maxmin: true,
+      shade: 0.8,
+      area: ['1000px', '80%'],
+      btn:['保存','返回'],
+      content:"sbpzListInput.html", //iframe的url
+      yes:function(){
+        top.layer.alert("点击了保存按钮");
+      }
+    });
+  }
+
+  //修改
+  function updateRow(action,target) {
+    if (checkNum(target) < 1) {
+      top.layer.alert("必须选择一行！");
+      return;
+    } else if (checkNum(target) > 1) {
+      top.layer.alert("只能选择一行, 不允许多选！");
+      return;
+    }
+    var id = $('input[name="ids"]:checked').val();
+    var index=top.layer.open({
+      skin: 'gb_layer',
+      type: 2,
+      title:'修改',
+      shadeClose: true,
+      maxmin: true,
+      shade: 0.8,
+      area: ['1000px', '80%'],
+      btn:['保存','返回'],
+      content:action+'?id='+id+'', //iframe的url
+      yes:function(){
+        top.layer.alert("点击了保存按钮");
+      }
+    });
+  }
+
+  //删除
+  function deleteRow(action, target) {
+    if (checkNum(target) < 1) {
+      top.layer.alert("须选择一行!");
+      return;
+    }
+    var index = top.layer.confirm("是否确定删除记录?",function(){
+
+    });
+  }
+</script>
+</body>
+</html>

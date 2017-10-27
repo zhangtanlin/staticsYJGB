@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <link rel="stylesheet" href="../bower_components/AceAdmin/assets/css/font-awesome.min.css">
+  <!--[if IE 7]>
+  <link rel="stylesheet" href="../bower_components/AceAdmin/assets/css/font-awesome-ie7.min.css"/>
+  <![endif]-->
+  <link rel="stylesheet" href="../bower_components/AceAdmin/assets/css/bootstrap.min.css">
+  <link rel="stylesheet" href="../bower_components/AceAdmin/assets/css/ace.min.css">
+  <!--[if lte IE 8]>
+  <link rel="stylesheet" href="../bower_components/AceAdmin/assets/css/ace-ie.min.css"/>
+  <![endif]-->
+  <link rel="stylesheet" href="../bower_components/zTree/css/zTreeStyle/zTreeStyle.css">
+  <!--[if lt IE 9]>
+  <script src="../bower_components/AceAdmin/assets/js/html5shiv.js"></script>
+  <script src="../bower_components/AceAdmin/assets/js/respond.min.js"></script>
+  <![endif]-->
+  <link rel="stylesheet" href="../bower_components/layer/build/skin/default/layer.css">
+  <link rel="stylesheet" href="../yjgb-css/gd_main2.min.css">
+</head>
+<body>
+<div class="container-fluid gb_templet">
+  <div class="row">
+    <div class="col-xs-12">
+      <table>
+        <tr>
+          <td class="title"><div>预警名称：</div></td>
+          <td>
+            <input type="text" class="validate[required]" />
+          </td>
+          <td class="title"><div>预警类型：</div></td>
+          <td>
+            <input type="text" value="" class="validate[required]" />
+          </td>
+          <td class="title"><div>预警级别：</div></td>
+          <td>
+            <input type="hidden" id="yjzt" name="yjzt" value="UNPUBLISHED"/>
+            <dict:select dictType="sjzd_yjjb" name="yjjb" initNull="true" className=""/>
+          </td>
+        </tr>
+    </div>
+  </div>
+</div>
+
+
+<script src='../bower_components/AceAdmin/assets/js/jquery-1.10.2.min.js'></script>
+<script type="text/javascript" src="../bower_components/AceAdmin/assets/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="../bower_components/AceAdmin/assets/js/ace.min.js"></script>
+<script type="text/javascript" src="../bower_components/AceAdmin/assets/js/ace-extra.min.js"></script>
+<script type="text/javascript" src="../bower_components/layer/build/layer.js"></script>
+<script type="text/javascript" src="../bower_components/zTree/js/jquery.ztree.core.min.js"></script>
+</body>
+</html>
